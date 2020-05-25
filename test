@@ -1,0 +1,22 @@
+#!/bin/bash
+read -p "Enter the Values for A:" A
+read -p "Enter the Values for B:" B
+read -p "Enter the Values for C:" C
+if [ ! -z "$A" ]
+then
+echo "A is not empty"
+   if [ ! -z "$B" ]
+   then
+        echo "B is not empty"
+        if [ ! -z "$C" ]
+        then
+            echo "C is not empty"
+        else
+            echo "C is empty"
+        fi
+    else
+        echo "B is empty"
+    fi
+else
+    echo "A is empty"
+fi
