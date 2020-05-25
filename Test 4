@@ -1,0 +1,12 @@
+FROM docker-nginx-lua
+RUN yum update -y
+RUN yum install yum-utils rpm  -y
+RUN yum install dnf-utils -y
+RUN yum-config-manager --set-enabled PowerTools
+RUN yum-config-manager --add-repo=https://negativo17.org/repos/epel-multimedia.repo
+RUN dnf install ffmpeg -y
+CMD ["nginx", "-g daemon off;"]
+
+#Firstly prepare own index.html & httpd.conf files
+#For Building the image by using this dockerfile use
+#docker build -t username/docker-nginx-lua-ffmpeg .
