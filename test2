@@ -1,0 +1,11 @@
+#!/bin/bash
+read -p "Enter the file URL: " URL
+if [ $URL ]
+then
+    echo "Hello"
+    curl -O $URL
+    sleep 5
+    file_name=$(ls -ltr | tail -1 | awk '{print $9 }')
+    echo $file_name
+    awk '{print $9}' $file_name | sort | uniq -c | sort -rn
+fi
