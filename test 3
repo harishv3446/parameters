@@ -1,0 +1,10 @@
+FROM centos
+RUN yum install epel-release nginx lua -y
+ADD index.html /usr/share/nginx/html/index.html
+COPY httpd.conf /etc/nginx/conf.d/
+EXPOSE 80
+CMD ["nginx", "-g daemon off;"]
+
+#Firstly prepare own index.html & httpd.conf files
+#For Building the image by using this dockerfile use
+#docker build -t username/docker-nginx-lua .
